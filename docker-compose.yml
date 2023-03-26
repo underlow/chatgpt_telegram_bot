@@ -9,7 +9,9 @@ services:
       - 127.0.0.1:${MONGODB_PORT:-27017}:${MONGODB_PORT:-27017}
     volumes:
       - ${MONGODB_PATH:-./mongodb}:/data/db
-    # TODO: add auth
+    networks:
+      gpt-chat-network:
+      # TODO: add auth
 
   chatgpt_telegram_bot:
     container_name: gpt_telegram_bot
@@ -26,6 +28,8 @@ services:
       - NEW_DIALOG_TIMEOUT=300
     depends_on:
       - mongo
+    networks:
+      gpt-chat-network:
 
   mongo_express:
     container_name: mongo-express
@@ -42,3 +46,8 @@ services:
       - ME_CONFIG_BASICAUTH_PASSWORD=${MONGO_EXPRESS_PASSWORD:-password}
     depends_on:
       - mongo
+    networks:
+      gpt-chat-network:
+
+networks:
+  gpt-chat-network:

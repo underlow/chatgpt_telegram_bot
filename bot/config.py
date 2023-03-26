@@ -28,6 +28,7 @@ allowed_telegram_usernames =  os.getenv("TELEGRAM_USERNAMES", "").split(',')
 new_dialog_timeout =  int(os.getenv("NEW_DIALOG_TIMEOUT", 300))
 enable_message_streaming = os.getenv('ENABLE_MESSAGE_STREAMING', True)
 mongodb_uri = "mongodb://mongo:"+config_env.get('MONGODB_PORT', "27017")
+print("Value of 'allowed_telegram_usernames' environment variable :", str(allowed_telegram_usernames))
 
 # chat_modes
 with open(config_dir / "chat_modes.yml", 'r') as f:

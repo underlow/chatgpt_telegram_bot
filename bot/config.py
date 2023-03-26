@@ -1,3 +1,5 @@
+import os
+
 import yaml
 import dotenv
 from pathlib import Path

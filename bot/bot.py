@@ -506,5 +506,4 @@ def run_bot() -> None:
 
 
 if __name__ == "__main__":
-    print("Starting")
     run_bot()
